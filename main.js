@@ -22,18 +22,26 @@ Output =>
 [49, 20, 500]
 
 */
+var arrOfNum1 = [1,5,2]
+var arrOfNum2 = [7,2,50]
 
-function MultiByNum1OrNum2() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function MultiByNum1OrNum2(arr, num1, num2) {
+  var result = [];
+  result = arr.map(function (elem) {
+
+    if (elem % num1 == 0) 
+         { result = elem * num1; }
+    else 
+         { result = elem * num2; }
+
+    return result;
+  })
+  return result;
 }
+console.log(MultiByNum1OrNum2(arrOfNum1, 2, 6));
+console.log(MultiByNum1OrNum2(arrOfNum2, 7, 10));
 
-/* Q2:
-Using Filter
-Create a function called longerAndYounger
-that takes an array of objects and 2 numbers as a parameter
-and return a new array with the object has 
-a name longer than the first parameter
-and in the same time less than the second parameters 
+/* 
 
 var arrOfObj1 = [
   { name: "alex" ,age:22},
@@ -56,20 +64,36 @@ Output =>
   { name: "alex" ,age:22},
   { name: "mercer",age:26}
 ]
+
+Q2:
+Using Filter
+Create a function called longerAndYounger
+that takes an array of objects and 2 numbers as a parameter
+and return a new array with the object has 
+a name longer than the first parameter
+and in the same time less than the second parameters 
+
+
 */
 
-function longerAndYounger() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+var arrOfObj1 = [
+  { name: "alex", age: 22 },
+  { name: "mercer", age: 26 },
+  { name: "alice", age: 33 },
+  { name: "zaheer", age: 35 },
+  { name: "elizabeth", age: 45 }
+]
+
+function longerAndYounger(obj, num1, num2) {
+  var result = [];
+  result = obj.filter(function (elem) {
+    return (elem.name.length > num1 && elem.age < num2);
+  })
+  return result;
 }
-
+console.log(longerAndYounger(arrOfObj1, 4, 30));
+console.log(longerAndYounger(arrOfObj1, 3, 30));
 /* Q3:
-Using Reduce
-Create a function called nameAndAllFoods
-that takes an array of objects of strings and a number
-and return a string have the name of object that 
-equal to the index that passesd in the parameter 
-and with all the food from other objects
-
 var arrOfObj2 = [
   { name: "alex", food: "fried chiken" },
   { name: "mercer", food: "pizaa" },
@@ -87,12 +111,33 @@ Example:
 nameAndAllFoods(arrOfObj2,2)
 Output =>
 "alice, fried chiken, pizaa, burger, hot dog, eggs"
-  
-*/
-function nameAndAllFoods() {
-  // WRITE YOUR CODE UNDER THIS LINE         
-}
+ 
 
+Using Reduce
+Create a function called nameAndAllFoods
+that takes an array of objects of strings and a number
+and return a string have the name of object that 
+equal to the index that passesd in the parameter 
+and with all the food from other objects
+*/
+var arrOfObj2 = [
+  { name: "alex", food: "fried chiken" },
+  { name: "mercer", food: "pizaa" },
+  { name: "alice", food: "burger" },
+  { name: "zaheer", food: "hot dog" },
+  { name: "elizabeth", food: "eggs" }
+]
+
+function nameAndAllFoods(arr, num) {
+  var result = [];
+  result = arr.reduce(function (total, elem) {
+    return total + ", " + elem.food
+  }, arr[num].name)
+
+  return result;
+}
+console.log(nameAndAllFoods(arrOfObj2, 0))
+console.log(nameAndAllFoods(arrOfObj2, 2))
 
 /*
 Q4

@@ -3,10 +3,29 @@
 
 <head>
 	<!-- WRITE YOUR CODE UNDER THIS LINE          -->
+	<!--d. change the title to Q4 -->
+	<title>Q4</title>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-	<!-- WRITE YOUR CODE UNDER THIS LINE          -->
-</body>
+     <!--a.div -->
+     <div class="main" >Main div is here</div>
+     <!--b.button:no -->
+     <button id="no" style="background-color: red"> Red</button>	
+     <!--c.button:yes" -->
+     <button id="yes" style="background-color:green" > Green</button>	
 
+<!-- jquery -->
+    <script>
+       $( "#no" ).click(function() {
+	    $( ".main" ).css("color", "red")})
+
+       $( "#yes" ).click(function() {
+	    $( ".main" ).css("color", "green")})
+    </script>	
+</body>
 </html>
+
+
+
